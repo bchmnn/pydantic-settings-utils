@@ -2,7 +2,7 @@ from datetime import timedelta
 
 from pydantic import BaseModel
 
-from pydantic_settings_utils.duration import (
+from pydantic_settings_utils import (
     Duration,
     human_time_to_timedelta,
     timedelta_to_human_time,

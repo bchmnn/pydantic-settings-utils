@@ -3,7 +3,7 @@ import typing
 import pytest
 from pydantic import BaseModel
 
-from pydantic_settings_utils.util import pydantic_field_is_optional
+from pydantic_settings_utils import pydantic_field_is_optional
 
 
 class ModelShape(BaseModel):
