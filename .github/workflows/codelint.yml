@@ -1,0 +1,34 @@
+name: Codelint
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  codelint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Run isort+black
+        run: |
+          uv run isort -c .
+          black --check .
+
+      - name: Run ruff
+        run: uv run ruff check
+
+      - name: Run pyright
+        run: uv run pyright
+

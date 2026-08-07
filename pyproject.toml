@@ -1,7 +1,7 @@
 [project]
 name = "pydantic-settings-utils"
 version = "1.0.0"
-description = "pydantic-settings utilities"
+description = "pydantic-settings-utils"
 authors = [
     { name = "bchmnn", email = "pydantic-settings-utils@gandalf.mozmail.com" }
 ]
@@ -20,11 +20,16 @@ dependencies = [
 dev = [
     "black>=26.5.1",
     "isort>=8.0.1",
+    "pyright>=1.1.411",
     "pytest>=9.1.1",
+    "ruff>=0.16.2",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.isort]
+profile = "black"
 
 [project.urls]
 Repository = "https://github.com/bchmnn/pydantic-settings-utils"
