@@ -24,7 +24,7 @@ jobs:
       - name: Run isort+black
         run: |
           uv run isort -c .
-          black --check .
+          uv run black --check .
 
       - name: Run ruff
         run: uv run ruff check
