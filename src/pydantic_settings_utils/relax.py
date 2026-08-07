@@ -38,14 +38,13 @@ def RelaxedConfig[T: ConfigWithConfigFileField](cls: type[T]) -> type[T]:
         if _CliSubCommand in field.metadata:
             continue
 
-        if pydantic_field_is_optional(field):
-            if field.default == PydanticUndefined:
-                new_cls_dict["__annotations__"][key] = field.rebuild_annotation()
-                new_cls_dict[key] = None
-            continue
-
-        new_cls_dict["__annotations__"][key] = field.rebuild_annotation() | None
-        new_cls_dict[key] = None
+        if field.default == PydanticUndefined:
+            new_cls_dict["__annotations__"][key] = (
+                field.rebuild_annotation()
+                if pydantic_field_is_optional(field)
+                else field.rebuild_annotation() | None
+            )
+            new_cls_dict[key] = None
 
     newclass = type(
         f"Relaxed_{cls.__name__}",

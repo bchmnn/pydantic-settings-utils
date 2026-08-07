@@ -68,8 +68,8 @@ duration: 1d2h
 ```sh
 $ uv run examples/basic.py --duration 1d current-config
 ---
-host:
-port:
+host: localhost
+port: 8080
 duration: 1d
 
 ```
