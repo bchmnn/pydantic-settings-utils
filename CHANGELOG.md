@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.0...v0.1.1) (2026-08-07)
+
+
+### Bug Fixes
+
+* do not overwrite default values in RelaxedConfig ([8b75330](https://github.com/bchmnn/pydantic-settings-utils/commit/8b75330e000a864df44241a6c3699f89cd422056))
+
 ## 0.1.0 (2026-08-07)
 
 
