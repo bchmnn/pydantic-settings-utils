@@ -29,7 +29,6 @@ def RelaxedConfig[T: ConfigWithConfigFileField](cls: type[T]) -> type[T]:
     new_cls_dict: dict[typing.Any, typing.Any] = {
         "__annotations__": {},
         "_RELAXED": ModelPrivateAttr(True),
-        "_QUIET": ModelPrivateAttr(True),
     }
     for key, field in cls.model_fields.items():
         if not field.annotation:

@@ -94,6 +94,8 @@ duration: 1d
 ### Subprograms
 
 ```python
+import sys
+
 from pydantic_settings import CliSubCommand, get_subcommand
 
 from pydantic_settings_utils import (
@@ -104,6 +106,7 @@ from pydantic_settings_utils import (
     StandaloneConfig,
     WithRelaxedSubcommands,
 )
+from pydantic_settings_utils.config import ExampleConfigCommand
 
 BaseSubprogramConfig = ConfigWithConfigFileField.factory("mysubprogram")
 
@@ -119,10 +122,17 @@ class Config(ConfigBase):
     subprogram: CliSubCommand[SubprogramConfig]
 
 
-EXAMPLE_SUBPROGRAM_CONFIG = SubprogramConfig(duration="1d2h", **EXAMPLE_CONFIG_COMMANDS)  # type: ignore
-example_config_cb = lambda c: EXAMPLE_SUBPROGRAM_CONFIG.model_dump_yaml(
-    quiet=c.suppress_yaml_warning
-)
+def example_config_cb(c: ExampleConfigCommand):
+    argv = sys.argv
+    # we patch sys.argv with an empty config file,
+    # so AutomatorConfig does not search and load values
+    # from default config files.
+    sys.argv = [*sys.argv[:1], "-c", "/dev/null"]
+    config = SubprogramConfig(
+        duration="1d2h", **EXAMPLE_CONFIG_COMMANDS  # type: ignore
+    ).model_dump_yaml(quiet=c.suppress_yaml_warning)
+    sys.argv = argv
+    return config
 
 
 def subprogram(config: SubprogramConfig | None = None):

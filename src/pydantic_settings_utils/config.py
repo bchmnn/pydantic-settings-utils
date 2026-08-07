@@ -161,7 +161,7 @@ class ConfigWithConfigFileField(ConfigBase):
             StandaloneConfig(cls).load()
             sys.exit(0)
 
-        if not config:
+        if not config or config._QUIET:
             config = StandaloneConfig(RelaxedConfig(cls)).load()
 
         match get_subcommand(config, is_required=False):
@@ -175,4 +175,4 @@ class ConfigWithConfigFileField(ConfigBase):
                 print(example_config_cb(c))
                 sys.exit(0)
 
-        return StandaloneConfig(cls).load()
+        return StandaloneConfig(cls).configure(parse_config_quietly=True).load()
