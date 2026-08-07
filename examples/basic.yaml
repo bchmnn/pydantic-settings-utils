@@ -1,0 +1,4 @@
+---
+host: example.com
+port: 1024
+duration: 1d

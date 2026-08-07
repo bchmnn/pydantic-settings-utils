@@ -1,0 +1,40 @@
+[project]
+name = "pydantic-settings-utils"
+version = "1.0.0"
+description = "pydantic-settings utilities"
+authors = [
+    { name = "bchmnn", email = "pydantic-settings-utils@gandalf.mozmail.com" }
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["pydantic", "pydantic-settings"]
+requires-python = ">=3.12"
+dependencies = [
+    "platformdirs>=4.0,<5.0",
+    "pydantic>=2.0,<3.0",
+    "pydantic-settings>=2.0,<3.0",
+    "pyyaml>=6.0,<7.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "isort>=8.0.1",
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.urls]
+Repository = "https://github.com/bchmnn/pydantic-settings-utils"
+
+[project.optional-dependencies]
+yamlfix = [
+    "yamlfix>=1.19.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
