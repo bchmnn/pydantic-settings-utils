@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.1...v0.1.2) (2026-08-07)
+
+
+### Bug Fixes
+
+* fix config quiet behavior ([b928945](https://github.com/bchmnn/pydantic-settings-utils/commit/b928945ecd0eddb8adeb4cb18a4f468868b83032))
+
 ## [0.1.1](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.0...v0.1.1) (2026-08-07)
 
 
