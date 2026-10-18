@@ -11,6 +11,7 @@ class ConfigBase(BaseSettings):
         cli_kebab_case=True,
         cli_use_class_docs_for_groups=True,
         env_nested_delimiter="__",
+        extra="ignore",
     )
 
     @classmethod
