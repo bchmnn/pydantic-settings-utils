@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.2...v0.2.0) (2026-10-18)
+
+
+### Features
+
+* add extra="ignore" to ConfigBase::model_config ([063d6de](https://github.com/bchmnn/pydantic-settings-utils/commit/063d6dedfb311acfdceb7e2601ef14aa79aa17b2))
+
 ## [0.1.2](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.1...v0.1.2) (2026-08-07)
 
 
