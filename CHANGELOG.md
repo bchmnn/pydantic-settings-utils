@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.2.0...v0.2.1) (2026-10-28)
+
+
+### Bug Fixes
+
+* expose model_dump arguments in model_dump_yaml ([4e8e8e2](https://github.com/bchmnn/pydantic-settings-utils/commit/4e8e8e25f056db77c3a09778786331f2c1e4cec4))
+
 ## [0.2.0](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.1.2...v0.2.0) (2026-10-18)
 
 
