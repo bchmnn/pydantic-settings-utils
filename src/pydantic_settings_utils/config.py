@@ -157,6 +157,7 @@ class ConfigWithConfigFileField(ConfigBase):
         cls,
         config: typing.Self | None = None,
         example_config_cb: typing.Callable[[ExampleConfigCommand], str] | None = None,
+        **kwargs,
     ) -> typing.Self:
         if config and not config._RELAXED:
             return config
@@ -170,7 +171,7 @@ class ConfigWithConfigFileField(ConfigBase):
 
         match get_subcommand(config, is_required=False):
             case CurrentConfigCommand() as c:
-                print(config.model_dump_yaml(quiet=c.suppress_yaml_warning))
+                print(config.model_dump_yaml(quiet=c.suppress_yaml_warning, **kwargs))
                 sys.exit(0)
             case ExampleConfigCommand() as c:
                 if not example_config_cb:
