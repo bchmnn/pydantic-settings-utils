@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.2.1...v0.2.2) (2026-10-28)
+
+
+### Bug Fixes
+
+* expose model_dump_yaml arguments in ConfigWithConfigFileField::init ([63c8383](https://github.com/bchmnn/pydantic-settings-utils/commit/63c83836fce31ff992bd8c66de7f88cddb510069))
+
 ## [0.2.1](https://github.com/bchmnn/pydantic-settings-utils/compare/v0.2.0...v0.2.1) (2026-10-28)
 
 
