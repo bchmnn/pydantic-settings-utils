@@ -120,15 +120,19 @@ class ConfigWithConfigFileField(ConfigBase):
         return typing.cast(type[typing.Self], newclass)
 
     def model_dump_yaml(
-        self, excluder: typing.Callable[[list[str]], IncEx] | None = None, quiet=True
+        self,
+        *,
+        excluder: typing.Callable[[list[str]], IncEx] | None = None,
+        quiet=True,
+        **kwargs: typing.Any,
     ):
         dump = self.model_dump(
-            mode="python",
             exclude=(
                 excluder(["config", "verbose", "current_config", "example_config"])
                 if excluder
                 else {"config", "verbose", "current_config", "example_config"}
             ),
+            **kwargs,
         )
         y = yaml.safe_dump(
             dump,
